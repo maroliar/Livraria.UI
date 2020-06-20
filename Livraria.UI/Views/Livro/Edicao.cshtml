@@ -52,11 +52,17 @@
                 <a href="@Url.Content("/Livro/Consulta")" class="btn btn-dark">Voltar</a>
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success" role="alert" style="margin-top: 0.5rem;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                @ViewBag.Message
+            </div>
+        }
+    </div>
 </div>
 
 @section Scripts {

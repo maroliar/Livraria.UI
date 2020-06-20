@@ -46,6 +46,17 @@
 
             </div>
         </form>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success" role="alert" style="margin-top: 0.5rem;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                @ViewBag.Message
+            </div>
+        }
+
     </div>
 </div>
 

@@ -34,9 +34,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody @if (Model != null)
-    {@foreach (var item in Model)
-        {<tr>
+    <tbody @if (Model != null) { @foreach (var item in Model) {<tr>
             <td>
             @Html.DisplayFor(modelItem => item.IdLivro)
             </td>
@@ -56,11 +54,16 @@
             @Html.DisplayFor(modelItem => item.DataPublicacao)
             </td>
             <td>
-            @Html.DisplayFor(modelItem => item.ImagemCapaUrl)
+                <img src="@Html.DisplayFor(modelItem => item.ImagemCapaUrl)" , alt="Image" />
+
             </td>
             <td>
-            @Html.ActionLink("Editar", "Edicao", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Deletar", "Exclusao", new { /* id=item.PrimaryKey */ })
+                <a href="@Url.Action("Edicao", "Livro", new { id = item.IdLivro })" class="btn btn-sm btn-primary">Editar</a>
+
+                @Html.ActionLink("Excluir", "Exclusao",
+                    new { id = item.IdLivro },
+                    new { onclick = "return confirm('Tem certeza que deseja excluir?')", @class = "btn btn-sm btn-dark" })
+
             </td>
             </tr>
         }
@@ -69,3 +72,13 @@
 
     </tbody>
 </table>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert" style="margin-top: 0.5rem;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @ViewBag.Message
+    </div>
+}

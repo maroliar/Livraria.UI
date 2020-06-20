@@ -31,7 +31,6 @@ namespace Livraria.UI
                     options.LoginPath = new PathString("/Login/Index");
                     options.AccessDeniedPath = new PathString("/Login/Index");
                 });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
