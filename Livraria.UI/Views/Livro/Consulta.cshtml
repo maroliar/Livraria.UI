@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Livraria.UI.Models.LivroConsultaModel>
+
+@{
+    ViewData["Title"] = "Consulta";
+}
+
+<h2>Consulta</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLivro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPublicacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagemCapaUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody @if (Model != null)
+    {@foreach (var item in Model)
+        {<tr>
+            <td>
+            @Html.DisplayFor(modelItem => item.IdLivro)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.DataPublicacao)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.ImagemCapaUrl)
+            </td>
+            <td>
+            @Html.ActionLink("Editar", "Edicao", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Deletar", "Exclusao", new { /* id=item.PrimaryKey */ })
+            </td>
+            </tr>
+        }
+}
+
+
+    </tbody>
+</table>
